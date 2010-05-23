@@ -31,6 +31,10 @@ Options
  # Note that the session key is used for both the query parameter name
  # and the cookie name.
 
+ # You can specify multiple session keys:
+
+ use Rack::FlashSession, 'sid', 'my_other_session_key'
+
 Thanks to:
 
  Rob Anderton for posting Flash uploaders, Rails, cookie based

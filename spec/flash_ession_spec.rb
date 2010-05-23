@@ -35,6 +35,12 @@ describe Rack::FlashSession do
       subject {request({'my_session_id' => '12345'}, 'my_session_id')}
       its(:cookies){should == {'my_session_id' => '12345'}}
     end
+
+    describe 'multiple cookies' do
+      subject {request({'my_session_id' => '12345', 'my_other_session_id' => '54321'}, 'my_session_id', 'my_other_session_id')}
+      its(:cookies){should include({'my_session_id' => '12345'})}
+      its(:cookies){should include({'my_other_session_id' => '54321'})}
+      its(:cookies){should have(2).items}
     end
   end
 
