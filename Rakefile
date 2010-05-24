@@ -19,6 +19,7 @@ DESCRIPTION
 
     gem.add_dependency 'rack', '>= 1.0'
 
+    gem.add_development_dependency 'rack', '>=1.1'
     gem.add_development_dependency 'rack-test', '>=0.5.3'
     gem.add_development_dependency "rspec", ">= 1.3.0"
   end

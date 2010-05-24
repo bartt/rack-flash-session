@@ -10,8 +10,7 @@ describe Rack::FlashSession do
   end
 
   def env_for(params = {}, options={})
-    input = Rack::Utils.build_query(params)
-    Rack::MockRequest.env_for('', options.merge(:input => input))
+    Rack::MockRequest.env_for('', options.merge(:params => params))
   end
 
   def do_call(params, options, *args)
