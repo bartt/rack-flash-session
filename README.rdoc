@@ -1,14 +1,14 @@
-Install
+== Install
 
  $ gem install rack-flash-session
 
-Rails
+=== Rails
 
  # config/environment.rb
  config.gem 'rack-flash-session', :lib => 'rack/flash-session'
  config.middleware.insert_before(ActionController::Base.session_store, 'Rack::FlashSession');
 
-Middleware
+=== Middleware
 
  # add a use line to your builder
  require 'rack/flash-session'
@@ -17,27 +17,27 @@ Middleware
    run MyApp.new
  end
 
-Options
+== Options
 
- # The default session key is '_session_id' but you can specify your
- # own:
+The default session key is '_session_id' but you can specify your
+own:
 
  use Rack::FlashSession, 'sid'
 
- # Or in Rails you can reference the key defined to be used as session key:
+Or in Rails you can reference the key defined to be used as session key:
 
  config.middleware.insert_before(ActionController::Base.session_store, 'Rack::FlashSession', config.action_controller.session[:key])
 
- # Note that the session key is used for both the query parameter name
- # and the cookie name.
+Note that the session key is used for both the query parameter name
+and the cookie name.
 
- # You can specify multiple session keys:
+You can specify multiple session keys:
 
  use Rack::FlashSession, 'sid', 'my_other_session_key'
 
-Thanks to:
+== Thanks to:
 
- Rob Anderton for posting Flash uploaders, Rails, cookie based
- sessions and CSRF: Rack Middleware to the rescue!
- (http://thewebfellas.com/blog/2008/12/22/flash-uploaders-rails-cookie-based-sessions-and-csrf-rack-middleware-to-the-rescue)
- on which this gem is based.
+Rob Anderton for posting Flash uploaders, Rails, cookie based
+sessions and CSRF: Rack Middleware to the rescue!
+(http://thewebfellas.com/blog/2008/12/22/flash-uploaders-rails-cookie-based-sessions-and-csrf-rack-middleware-to-the-rescue)
+on which this gem is based.
